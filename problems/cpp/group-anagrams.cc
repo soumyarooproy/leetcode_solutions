@@ -18,3 +18,21 @@ vector<vector<string>> groupAnagrams(vector<string>& strs)
 
     return result;
 }
+
+/*------------------------------------------------------------------------*/
+
+// Faster solution on leetcode
+vector<vector<string>> groupAnagrams(vector<string>& strs)
+{
+    unordered_map<int,vector<string>> map;
+    for(string s:strs){
+        int ret = 1;
+        for(char c:s)
+            ret *= (c*c+c+41) % INT_MAX;
+        map[ret].push_back(s);
+    }
+    vector<vector<string>> ret;
+    for(auto x:map)
+       ret.emplace_back(x.second);
+    return ret;
+}

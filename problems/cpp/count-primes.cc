@@ -1,4 +1,5 @@
 // Basic sieve
+// 119 ms - 8/29/2017
 int countPrimes(int n) {
     if (n < 2)
         return 0;
@@ -15,6 +16,7 @@ int countPrimes(int n) {
 }
 /*--------------------------------------------------------*/
 // Optimized sieve
+// 19 ms - 8/29/2017
 int countPrimes(int n) {
     if (n < 3)
         return 0;

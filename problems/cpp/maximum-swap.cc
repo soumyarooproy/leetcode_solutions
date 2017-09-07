@@ -7,36 +7,22 @@ int maximumSwap(int num)
     auto str = to_string(num);
 
     // Find the first local minima (or an inflexion point) left-to-right
-    int li = 0, n = str.size();
-    while (li < n - 1 && str[li] >= str[li + 1])
-        ++li;
+    int n = str.size(), li = 0;
+    for ( ; li < n - 1 && str[li] >= str[li + 1]; ++li);
 
     // If no local minima found, return the number unmodified
     if (li == n)
         return num;
 
-    // Otherwise, a swap is certain; swapping the values in indices li and (li + 1)
-    // will definitely give a larger number
-
-    // But can we do better?
-
     // Find the max in the rest of the range, i.e. to the right of li
-    int ri = n - 1, maxi = ri;
-    while (ri > li) {
+    int maxi = n - 1;
+    for (int ri = maxi - 1; ri > li; --ri)
         if (str[ri] > str[maxi])
             maxi = ri;
-        --ri;
-    }
-
-    // Swapping the values in indices li and maxi will definitely give another
-    // larger number
-
-    // But can we do even better?
 
     // Go back leftwards starting from li finding the max value smaller than the
     // max found above
-    while (li > 0 && str[li - 1] < str[maxi])
-        --li;
+    for ( ; li > 0 && str[li - 1] < str[maxi]; --li);
 
     swap(str[li], str[maxi]);
 

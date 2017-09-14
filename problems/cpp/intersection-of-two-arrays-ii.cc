@@ -24,7 +24,7 @@ public:
 /*--------------------------------------------------------------------------------*/
 // 6 ms, 09/13/2017
 // Time  : O(n1 + n2)
-// Space : O(m1 + m2)
+// Space : O(m1)
 class Solution {
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2)

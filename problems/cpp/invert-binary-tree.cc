@@ -1,4 +1,6 @@
 // 0 ms, 09/04/2017
+// Time  : O(n)
+// Space : O(h)
 TreeNode* invertTree(TreeNode* root)
 {
     if (root) {

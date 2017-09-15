@@ -31,3 +31,17 @@ private:
  * Logger obj = new Logger();
  * bool param_1 = obj.shouldPrintMessage(timestamp,message);
  */
+/*----------------------------------------------------------------*/
+// This solution uses O(n) space, where n is the total number of messages
+// received by the logger during its entire lifetime
+class Logger {
+public:
+    bool shouldPrintMessage(int timestamp, string message) {
+        if (timestamp < ok[message])
+            return false;
+        ok[message] = timestamp + 10;
+        return true;
+    }
+private:
+    map<string, int> ok;
+};

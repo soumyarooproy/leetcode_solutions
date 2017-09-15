@@ -12,22 +12,22 @@
  */
 class Solution {
 public:
-    int min_depth(TreeNode* root, int indent)
+    int min_depth(TreeNode* root)
     {
         if (!root->left && !root->right) {
             return 1;
         }
         int min_d = numeric_limits<int>::max();
         if (root->left)
-            min_d = min(min_d, min_depth(root->left, indent + 2));
+            min_d = min(min_d, min_depth(root->left));
         if (root->right)
-            min_d = min(min_d, min_depth(root->right, indent + 2));
+            min_d = min(min_d, min_depth(root->right));
         return min_d + 1;
     }
     int minDepth(TreeNode* root)
     {
         if (!root)
             return 0;
-        return min_depth(root, 0);
+        return min_depth(root);
     }
 };

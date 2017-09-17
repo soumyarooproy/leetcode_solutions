@@ -312,6 +312,9 @@
 ### Unique Paths II (#63)
 ### Unique Paths (#62)
 ### Rotate List (#61)
+* Determine the length of the list
+* Compute `k modulo n`
+* Bring the last `k` nodes from the back of the list to the front of the list
 ### Permutation Sequence (#60)
 ### Spiral Matrix II (#59)
 ### Merge Intervals (#56)
@@ -328,6 +331,11 @@
 ### Valid Sudoku (#36)
 ### Search for a Range (#34)
 ### Search in Rotated Sorted Array (#33)
+* 2-pass approach:
+   * Use binary search to find the index of the minimum key
+   * Then use binary search to search the ranges `[0, min_key_index)` or `[min_key_index, n)`
+* 1-pass approach:
+   * TBD
 ### Next Permutation (#31)
 ### Divide Two Integers (#29)
 ### Swap Nodes in Pairs (#24)

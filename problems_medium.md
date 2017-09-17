@@ -45,6 +45,13 @@
 ### Squirrel Simulation (#573)
 ### Managers with at Least 5 Direct Reports (#570)
 ### Permutation in String (#567)
+* Create a signature (char-to-frequency map, for instance) for `s1`
+* Create rolling/sliding signature for `m` consecutive characters in `s1` (`m` is the size of `s1`)
+* Time is `O(n * m)`, Space is `O(m)` (`n` is the size of `s2`)
+* Other signatures:
+   * Use a sorted sequence as a signature
+      * Time is `O(n * m lg m)`
+   * Use artbitrary-precision integer arithmetic to map an unordered set of characters to a unique integer
 ### Array Nesting (#565)
 ### Longest Line of Consecutive One in Matrix (#562)
 ### Subarray Sum Equals K (#560)

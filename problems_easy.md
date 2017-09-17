@@ -3,6 +3,8 @@
 ### Trim a Binary Search Tree (#669)
 ### Non-decreasing Array (#665)
 ### Image Smoother (#661)
+* Brute force - Use a `k`-by-`k` (`k = 3`) window
+* Sliiding window - complicated
 ### Judge Route Circle (#657)
 ### Two Sum IV - Input is a BST (#653)
 ### Set Mismatch (#645)
@@ -117,16 +119,31 @@
 ### Number of 1 Bits (#191)
 ### Reverse Bits (#190)
 ### Rotate Array (#189)
+* Simple approach - reverse the entire array and then reverse the two ranges - `[0, k)` and `[k, n)` separately
+* Other approaches - EPI's approach and `std::rotate()` approach
 ### Factorial Trailing Zeroes (#172)
+* Zeroes are contributed only by 10's, whose prime factors are `2` and `5`
+* In the first `n` numbers, `2` is contributed by `2, 4, 6, 8, ...` while `5` is contributed by `5, 10, 15, 20, ...`
+* It suffices to count the number of `5`'s because there will be at least as many `2`'s available to pair with the `5`'s
+   * Remember to account for the fact that `25 = 5 * 5`, `625 = 5 * 25`, etc.
 ### Excel Sheet Column Number (#171)
 ### Two Sum III - Data structure design (#170)
 ### Majority Element (#169)
 ### Excel Sheet Column Title (#168)
 ### Two Sum II - Input array is sorted (#167)
+* Use two indices - one that starts at the leftmost index and moves rightwards and the other that starts are the rightmost index and moves leftwards
+* if `val[leftindex] + val[rightindex] == target`, return `True`
+   * Otherwise, if `val[leftindex] + val[rightindex] > target`, increment `leftindex`
+   * Otherwise, decrement `rightindex`
 ### Intersection of Two Linked Lists (#160)
 ### Read N Characters Given Read4 (#157)
+* If the stream has at least `N` characters, use `Read4()` `floor(N/4)` times to read all characters except the final `1-3` characters
+   * For the last `1-3` characters, read `4` characters but serve back exactly as many characters as needed
+* Otherwise, return as many characters as there are in the stream
 ### Min Stack (#155)
+* Use a tuple of `(key, min_key)` to store in the stack, i.e., propagate the `min_key` up the stack
 ### Linked List Cycle (#141)
+* Use fast and slow pointers
 ### Single Number (#136)
 ### Valid Palindrome (#125)
 ### Best Time to Buy and Sell Stock II (#122)
@@ -142,9 +159,13 @@
 ### Symmetric Tree (#101)
 ### Same Tree (#100)
 ### Merge Sorted Array (#88)
+* Since this needs to be done in place, start writing in the final array from the back
+* Use two **_read_** indices to keep a track of the **_next largest_** key in each of the two sorted arrays
+* Use a **_write_** index to track the position the **_next larger_** key in the final array
 ### Remove Duplicates from Sorted List (#83)
 ### Climbing Stairs (#70)
 ### Sqrt(x) (#69)
+* Use binary search with initial bounds as `1` and `n`
 ### Add Binary (#67)
 ### Plus One (#66)
 ### Length of Last Word (#58)
@@ -155,6 +176,7 @@
 ### Remove Element (#27)
 ### Remove Duplicates from Sorted Array (#26)
 ### Merge Two Sorted Lists (#21)
+
 ### Valid Parentheses (#20)
 ### Longest Common Prefix (#14)
 ### Roman to Integer (#13)

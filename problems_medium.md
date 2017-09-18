@@ -2,6 +2,29 @@
 ### Number of Longest Increasing Subsequence (#673)
 ### Bulb Switcher II (#672)
 ### Maximum Swap (#670)
+* Algorithm:
+    * Find the first local minima (or an inflexion point) left-to-right
+    * If no local minima found, return the number unmodified
+       * Otherwise, a swap is certain; swapping the local minima and its right neighbor will definitely give a larger number
+    * But can we do better?
+       * Find the max in the rest of the range, i.e. to the right of the local minima
+       * Swapping the local minima and the max will definitely give another larger number
+    * But can we do even better?
+       * Go back leftwards starting from the local minima finding the max value smaller than the max found above
+    * Swap away!
+* Examples:
+    * 93458
+       * local minima is 3; max to the right of it is 8; no larger value to the left of 3 is smaller than the max, 8
+       * swap 3 and 8 to get 98453
+    * 76489
+       * local minima is 4; max to the right of it is 9; max value to the left of the local minima, 4, smaller than the max value, 9, is 7
+       * swap 7 and 9 to get 96487
+    * 2649
+       * local minima is 2; max to the right of it is 9
+       * swap 2 and 9 to get 9642
+    * 88888829
+       * local minima is 2; max to the right of it is 9; max value to the left of the local minima, 2, smaller than the max value, 9, is the leftmost 8
+       * swap the leftmost 8 and 9 to get 988888828
 ### Beautiful Arrangement II (#667)
 ### Path Sum IV (#666)
 ### Equal Tree Partition (#663)

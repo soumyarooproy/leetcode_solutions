@@ -253,6 +253,22 @@ max_int_break(k) = max(max_int_break(i) * max_int_break(k - i)), for all 1 <= i 
 ### Find the Duplicate Number (#287)
 ### Walls and Gates (#286)
 ### Inorder Successor in BST (#285)
+#### Recursion Galore!
+* The key to a clean recursive solution is to keep track of the best known successor, referred to as `succ_so_far` in the rest of this text, for each subtree starting to be explored
+* If the target node is the same as the root, return the leftmost node rooted in the right subtree
+   * The leftnode node in a tree can be expressed recursively as:
+```
+     leftmost(root) = leftmost(root->left) if root->left else root
+```
+   * If there is no right subtree, then the successor is not in this subtree (and, therefore, return `succ_so_far`)
+* Otherwise:
+   * If the target value is smaller than the root key, the target is in the left subtree and, therefore, the root becomes the best known successor at this time
+   * Otherwise, i.e., the target value is larger than the root key, the target is the right subtree, and `succ_so_far` continues to be the best known successor at this point
+   * This translates to the following recursive relation:
+```
+     succ(root, target, succ_so_far) = succ(root->left, target, root) if target < root->key
+                                       else succ(root->right, target, succ_so_far)
+```
 ### Peeking Iterator (#284)
 ### Zigzag Iterator (#281)
 ### Wiggle Sort (#280)

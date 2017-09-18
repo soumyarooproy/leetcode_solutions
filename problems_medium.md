@@ -168,6 +168,30 @@
 ### Design Tic-Tac-Toe (#348)
 ### Top K Frequent Elements (#347)
 ### Integer Break (#343)
+Enumerate all the possible decompositions (or integer breaks) of `n` for a few values of `n`:
+* For `n = 2`, the only break possible is `1 + 1`, which gives the product as `1`
+* For `n = 3`, the breaks are
+   * `1 + 2, product = 1 * 2 = 2`
+      * `1 + (1 + 1), product = 1 * 1 * 1 = 1`
+   * The max of the above is `2`
+* For `n = 4`, the breaks are:
+     * `(1 + 3), product = 1 * 3 = 3`
+     * `(2 + 2), product = 2 * 2 = 4`
+     * The max of the above is `4`
+* For `n = 5`, the breaks are:
+    * `(1 + 4), product = 1 * 4 = 4`
+       * `(1 + (1 + 3)), product = 1 * 1 * 3 = 3`
+       * `(1 + (2 + 2)), product = 1 * 2 * 2 = 4`
+    * `(2 + 3), product = 2 * 3 = 6`
+       * `(2 + (1 + 2)), product = 2 * 1 * 2 = 4`
+    * The max of all of the above is `6`
+
+The above suggests the following recursive relation:
+```
+max_int_break(k) = max(max_int_break(i) * max_int_break(k - i)), for all 1 <= i <= k/2
+```
+**_Either memoize (cache) a computed_**`max_int_break(i)`**_or implement a bottom-up dynamic programming approach_**
+
 ### Flatten Nested List Iterator (#341)
 ### Counting Bits (#338)
 ### House Robber III (#337)

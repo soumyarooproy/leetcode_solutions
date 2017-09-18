@@ -47,6 +47,7 @@
 ### Permutation in String (#567)
 * Create a signature (char-to-frequency map, for instance) for `s1`
 * Create rolling/sliding signature for `m` consecutive characters in `s1` (`m` is the size of `s1`)
+   * `char_freq(s2[i + 1, i + 1 + m)) = char_freq(s2[i, i + m)) - freq(s[i]) + freq(s[i + 1 + m))`
 * Time is `O(n * m)`, Space is `O(m)` (`n` is the size of `s2`)
 * Other signatures:
    * Use a sorted sequence as a signature

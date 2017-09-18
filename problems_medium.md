@@ -200,6 +200,12 @@ max_int_break(k) = max(max_int_break(i) * max_int_break(k - i)), for all 1 <= i 
 ### Reconstruct Itinerary (#332)
 ### Verify Preorder Serialization of a Binary Tree (#331)
 ### Odd Even Linked List (#328)
+* String the odd nodes together and the even nodes together by advancing two nodes at a time
+   * Use two sentinel head nodes for the two sublists
+   * Pay attention to odd-length linked list - the last node needs to be added to the end of the odd nodes' list
+* Make sure to terminate the even nodes' list by pointing the last node to `nullptr`
+* Attached the last node of the odd nodes' list to the first node of the even nodes' list
+* Return the head of the original list as the head of the new list
 ### Maximum Size Subarray Sum Equals k (#325)
 ### Wiggle Sort II (#324)
 ### Number of Connected Components in an Undirected Graph (#323)

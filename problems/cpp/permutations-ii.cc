@@ -1,6 +1,26 @@
+// 22 ms, 09/20/2017
+// Time  : O(n!)
+// Space : O(1)
+// Non-recursive
+// Refer to next-permutation.cc to see the implementation of nextPermutation(),
+// although the code below uses std::next_permutation()
+class Solution {
+public:
+    vector<vector<int>> permuteUnique(vector<int>& nums)
+    {
+        vector<vector<int>> result;
+        sort(nums.begin(), nums.end());
+        do {
+            result.emplace_back(nums);
+        } while (next_permutation(nums.begin(), nums.end()));
+        return result;
+    }
+};
+/*----------------------------------------------------------------------------------*/
 // 23 ms, 09/19/2017
 // Time  : O(n!)
 // Space : O(n)
+// Recursive
 class Solution {
 public:
     vector<vector<int>> permuteUnique(vector<int>& nums)

@@ -1,6 +1,7 @@
 // 13 ms, 09/20/2017
 // Time  : O(n)
 // Space : O(1)
+// TODO  : More compact solution below
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums)

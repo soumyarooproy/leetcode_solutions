@@ -2,7 +2,7 @@
 // Time : O(n)
 // Space : O(n)
 // Recursive solution
-// TODO : Iterative solution - compare from the front and the back
+// TODO : Simplify this
 class Solution {
 public:
     bool isOneEditDistance(string s, string t)
@@ -23,5 +23,36 @@ private:
         return isOneEditDistance(s, i_s + 1, t, i_t, num_edits - 1)      // insert in s
             || isOneEditDistance(s, i_s, t, i_t + 1, num_edits - 1)      // delete from s
             || isOneEditDistance(s, i_s + 1, t, i_t + 1, num_edits - 1); // replace in s
+    }
+};
+/*-------------------------------------------------------------------------*/
+// Iterative solution
+// TODO : Simplify this
+class Solution {
+public:
+    bool isOneEditDistance(string s, string t)
+    {
+        // Compare left-to-right
+        auto it = mismatch(s.cbegin(), s.cend(), t.cbegin());
+        if (it.first == s.cend())
+            return t.cend() - it.second == 1;
+        if (it.second == t.cend())
+            return s.cend() - it.first == 1;
+        
+        // Compare right-to-left
+        auto rit = mismatch(s.crbegin(), s.crend(), t.crbegin());
+        if (rit.first == s.crend())
+            return t.crend() - rit.second == 1;
+        if (rit.second == t.crend())
+            return s.crend() - rit.first == 1;
+        
+        int i_s = it.first - s.cbegin();
+        int i_t = it.second - t.cbegin();
+        int ri_s = s.crend() - rit.first - 1;
+        int ri_t = t.crend() - rit.second - 1;
+
+        return ri_s == i_s && ri_t == i_t        // replace in s or t
+            || ri_s == (i_s - 1) && ri_t == i_t  // insert in s or delete from t
+            || ri_s == i_s && ri_t == (i_t - 1); // delete from s or insert in t
     }
 };

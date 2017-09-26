@@ -6,18 +6,16 @@ class Solution {
 public:
     bool validPalindrome(string s)
     {
-        return valid_palindrome(s, 0, s.size() - 1, 1, 0);
+        return valid_palindrome(s, 0, s.size() - 1, 1);
     }
 private:
-    bool valid_palindrome(const string& s, int left, int right, int num_dels, int depth)
+    bool valid_palindrome(const string& s, int left, int right, int num_dels)
     {
-        if (left == right)
-            return true;
-        if (s[left] != s[right])
+        if (left < right && s[left] != s[right])
             return num_dels
-                   && (valid_palindrome(s, left + 1, right, num_dels - 1, depth + 1)
-                       || valid_palindrome(s, left, right - 1, num_dels - 1, depth + 1));
-        return left == right - 1 || valid_palindrome(s, left + 1, right - 1, num_dels, depth + 1);
+                   && (valid_palindrome(s, left + 1, right, num_dels - 1)
+                       || valid_palindrome(s, left, right - 1, num_dels - 1));
+        return left >= right || valid_palindrome(s, left + 1, right - 1, num_dels);
     }
 };
 /*-------------------------------------------------------------------------*/

@@ -1,6 +1,7 @@
 // 29 ms, 09/12/2017
 // Time  : O(n^2)
 // Space : O(n) in this implementation, but could easily be O(1)
+// TODO  : DP approach below
 class Solution {
 public:
     bool repeatedSubstringPattern(string s)
@@ -18,5 +19,19 @@ public:
                 return true;
         }
         return false;
+    }
+};
+/*--------------------------------------------------------*/
+class Solution {
+public:
+    bool repeatedSubstringPattern(string str) {
+        int i = 1, j = 0, n = str.size();
+        vector<int> dp(n+1,0);
+        while( i < str.size() ){
+            if( str[i] == str[j] ) dp[++i]=++j;
+            else if( j == 0 ) i++;
+            else j = dp[j];
+        }
+        return dp[n]&&dp[n]%(n-dp[n])==0;
     }
 };

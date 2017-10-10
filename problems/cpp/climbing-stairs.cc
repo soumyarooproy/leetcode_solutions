@@ -1,18 +1,19 @@
 // TLE, 09/09/2017
 // Time  : O(n^n)
 // Space : O(1)
-// Note  : Same as Fibonacci
+// TODO  : Recursive approach below, improve using memoization (same as Fibonacci)
 class Solution {
 public:
     int climbStairs(int n)
     {
-        return (n == 1) ? 1 : (n == 2) ? 2 : climbStairs(n - 1) + climbStairs(n - 2);
+        return (n < 3) ? n : climbStairs(n - 1) + climbStairs(n - 2);
     }
 };
 /*--------------------------------------------------------------------------*/
 // 0 ms, 09/09/2017
 // Time  : O(n)
 // Space : O(1)
+// Bottom-up
 class Solution {
 public:
     int climbStairs(int n)

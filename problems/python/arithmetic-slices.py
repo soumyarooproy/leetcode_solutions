@@ -1,6 +1,6 @@
-// 49 ms, 11/04/2017
-// Time  : O(n)
-// Space : O(1)
+# 49 ms, 11/04/2017
+# Time  : O(n)
+# Space : O(1)
 class Solution:
     def numberOfArithmeticSlices(self, A):
         """

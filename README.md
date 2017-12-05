@@ -1,6 +1,6 @@
 # Solutions to Leetcode Problems
 
-These are our solutions to several programming problems on Leetcode. The Java solutions are by Denise while the C++ and Python solutions are by Soumyaroop.
+These are a set of solutions to several programming problems on Leetcode.
 
 The directory `solutions` has the solution descriptions while the directory `code` has the code in C++, Java, and Python.
 

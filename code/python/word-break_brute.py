@@ -5,7 +5,7 @@
 # l = len(w), assuming all the words in the dictionary are of the same length
 # k = len(s) / l
 class Solution:
-    def wordBreak(self, s, d, s_index=0, depth=0):
+    def wordBreak(self, s, d, s_index=0):
         """
         :type s: str
         :type d: List[str]

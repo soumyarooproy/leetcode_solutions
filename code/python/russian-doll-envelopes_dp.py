@@ -1,3 +1,8 @@
+"""
+TLE, 12/17/2017
+Time  : O(n^2)
+Space : O(n)
+"""
 class Solution:
     def maxEnvelopes(self, envelopes):
         """
@@ -11,8 +16,7 @@ class Solution:
             Sort envelopes by size
             For each envelope x:
                 max number of envelopes that can fit in x
-                    = max(1 + max number of envelopes that can fit in y),
-                      y being all the envelopes smaller than x
+                    = 1 + max{max number of envelopes that can fit in y, y being all the envelopes smaller than x}
         """
         A.sort()
         M = [1]

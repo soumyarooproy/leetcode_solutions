@@ -16,16 +16,6 @@ class Solution:
         :rtype: List[int]
         """
         # Inorder - Left Root Right
-        
-        # Recursive implementation
-        def inorder_recur(root):
-            nonlocal sequence
-            if not root:
-                return
-            inorder_recur(root.left)
-            sequence += root.val,
-            inorder_recur(root.right)
-            return
 
         # Iterative implementation
         def inorder_iter(root):

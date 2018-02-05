@@ -28,5 +28,5 @@ class Solution:
             return
         
         sequence = []
-        inorder_iter(root)
+        inorder_recur(root)
         return sequence

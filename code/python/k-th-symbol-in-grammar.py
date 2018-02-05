@@ -1,4 +1,6 @@
-
+# 56 ms, 02/04/2018
+# Time  : O(N), N is O(lg K)
+# Space : O(N)
 class Solution:
     def kthGrammar(self, N, K):
         """

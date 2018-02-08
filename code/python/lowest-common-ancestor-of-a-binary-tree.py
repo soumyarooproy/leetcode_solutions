@@ -1,3 +1,7 @@
+# 143 ms, 02/07/2018
+# Time  : O(n)
+# Space : O(h)
+
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):

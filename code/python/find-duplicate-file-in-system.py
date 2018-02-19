@@ -1,6 +1,6 @@
 # 02/19/2018
-#  Time : O(n)
-# Space : O(n)
+#  Time : O(n*s), s = avg. file content size (assuming s >> filename size)
+# Space : O(n*s)
 
 class Solution:
     def findDuplicate(self, paths):

@@ -7,8 +7,8 @@ class RandomizedSet:
         """
         Initialize your data structure here.
         """
-        self.list_keys = []
-        self.map_keys = {}
+        self.list_keys = [] # store keys for random lookup
+        self.map_keys = {}  # store key->array index map
 
     def insert(self, val):
         """
@@ -18,6 +18,7 @@ class RandomizedSet:
         """
         if val in self.map_keys:
             return False
+        # Append key to array and make a key->array index entry in the map
         self.list_keys.append(val)
         self.map_keys[val] = len(self.list_keys) - 1
         return True
@@ -28,6 +29,12 @@ class RandomizedSet:
         :type val: int
         :rtype: bool
         """
+        # Deletion from the hash table is simple; deletion from the array is tricky
+        # because it creates a hole in the array
+        # Instead of performing compaction, just copy the last array element over
+        # to the hole and reduce the array size by 1
+        # Also update the hash table for the moved key to point to the correct
+        # array index
         if val in self.map_keys:
             delete_index = self.map_keys[val]
             self.map_keys[self.list_keys[-1]] = delete_index

@@ -1,7 +1,7 @@
 # Date  : 03/18/2018
 # Time  : O(n)
 # Space : O(n)
-# Notes : Found this solution on Leetcode
+# Notes : Refer to isomorphic-strings.py for an alternate approach 
 
 class Solution:
     def isIsomorphic(self, s, t):
@@ -16,7 +16,6 @@ class Solution:
                 if not c in char_map:
                     char_map[c] = len(char_map)
                 l.append(char_map[c])
-            #print('s =', s, 'l =', l)
             return l
 
         return encoded_str(s) == encoded_str(t)
